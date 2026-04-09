@@ -80,3 +80,24 @@ body,
     padding: 1rem 1.5rem 30vh;
   }
 }
+
+/* Print/Export to PDF Optimization */
+@media print {
+  /* Hide the toolbar */
+  .tiptap-toolbar-container, .toolbar, [role="toolbar"] {
+    display: none !important;
+  }
+  
+  /* Reset background and padding for clean PDF */
+  body, html, #root, #app, .simple-editor-wrapper {
+    background: white !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  
+  /* Ensure the editor itself prints well */
+  .simple-editor-content .tiptap.ProseMirror.simple-editor {
+    padding: 0 !important;
+    color: black !important;
+  }
+}
