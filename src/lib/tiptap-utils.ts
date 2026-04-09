@@ -361,7 +361,7 @@ export function selectionWithinConvertibleTypes(
 export const handleImageUpload = async (
   file: File,
   onProgress?: (event: { progress: number }) => void,
-  abortSignal?: AbortSignal
+  _abortSignal?: AbortSignal
 ): Promise<string> => {
   if (!file) {
     throw new Error("No file provided")
