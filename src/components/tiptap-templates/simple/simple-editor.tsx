@@ -58,7 +58,6 @@ import {
 import { MarkButton } from "@/components/tiptap-ui/mark-button"
 import { TextAlignButton } from "@/components/tiptap-ui/text-align-button"
 import { UndoRedoButton } from "@/components/tiptap-ui/undo-redo-button"
-import { TableButton } from "@/components/tiptap-ui/table-button"
 
 // --- Icons ---
 import { ArrowLeftIcon } from "@/components/tiptap-icons/arrow-left-icon"
@@ -107,7 +106,6 @@ const MainToolbarContent = ({
         />
         <BlockquoteButton />
         <CodeBlockButton />
-        <TableButton />
       </ToolbarGroup>
 
       <ToolbarSeparator />
