@@ -83,31 +83,49 @@ body,
 
 /* Print/Export to PDF Optimization */
 @page {
-  /* Ép trình duyệt xoá bỏ toàn bộ header/footer chứa Url và ngày giờ */
-  margin: 0mm; 
+  size: auto portrait;
+  /* Dùng lề chuẩn 2cm để trình duyệt tự cắt Headers/Footers nếu có thể, hoặc giữ lề tĩnh cho các trang sau */
+  margin: 20mm; 
 }
 
 @media print {
-  /* Hide the toolbar */
+  /* Giấu công cụ */
   .tiptap-toolbar-container, .toolbar, [role="toolbar"] {
     display: none !important;
   }
   
-  /* Reset background and padding for clean PDF */
+  /* Đặt cấu trúc không giới hạn để trải dài từ trang này sang trang khác */
   body, html, #root, #app, .simple-editor-wrapper {
     background: white !important;
-    height: auto !important;
+    height: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     overflow: visible !important;
   }
-  
-  body {
-    /* Bù lại khoảng lề an toàn để chữ không sát vào viền giấy */
-    padding: 1.5cm 2cm !important;
+
+  .simple-editor-content {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
   }
   
-  /* Ensure the editor itself prints well */
+  /* Độn lại các thành phần để khi chia trang không bị đứt đoạn */
   .simple-editor-content .tiptap.ProseMirror.simple-editor {
     padding: 0 !important;
     color: black !important;
+  }
+
+  /* Tránh đứt đoạn hình ảnh, bảng biểu và Code Block khi sang trang ngang lưng */
+  img, pre, code, table, tr, td, th {
+    max-width: 100% !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Tránh tiêu đề bị bỏ trơ trọi ở cuối trang */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
   }
 }
