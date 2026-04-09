@@ -61,7 +61,7 @@ body,
 }
 
 .simple-editor-content {
-  max-width: 648px;
+  max-width: 850px; /* Tăng độ rộng lên chuẩn giao diện Docs */
   width: 100%;
   margin: 0 auto;
   height: 100%;
@@ -72,7 +72,7 @@ body,
 
 .simple-editor-content .tiptap.ProseMirror.simple-editor {
   flex: 1;
-  padding: 3rem 3rem 30vh;
+  padding: 3rem 4rem 30vh;
 }
 
 @media screen and (max-width: 480px) {
@@ -82,6 +82,11 @@ body,
 }
 
 /* Print/Export to PDF Optimization */
+@page {
+  /* Ép trình duyệt xoá bỏ toàn bộ header/footer chứa Url và ngày giờ */
+  margin: 0mm; 
+}
+
 @media print {
   /* Hide the toolbar */
   .tiptap-toolbar-container, .toolbar, [role="toolbar"] {
@@ -93,6 +98,11 @@ body,
     background: white !important;
     height: auto !important;
     overflow: visible !important;
+  }
+  
+  body {
+    /* Bù lại khoảng lề an toàn để chữ không sát vào viền giấy */
+    padding: 1.5cm 2cm !important;
   }
   
   /* Ensure the editor itself prints well */
